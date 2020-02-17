@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 import { IonicStorageModule } from '@ionic/storage';
+import { configuration } from "src/app/admin/configuration";
 
 @NgModule({
   declarations: [AppComponent],
@@ -21,6 +22,7 @@ import { IonicStorageModule } from '@ionic/storage';
   providers: [
     StatusBar,
     SplashScreen,
+    configuration,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
