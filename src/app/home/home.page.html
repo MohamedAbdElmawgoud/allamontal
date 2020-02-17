@@ -3,21 +3,25 @@
 </ion-header>
 
 <ion-content >
-  <form (ngSubmit)="saveNotes(title , content,date)">
+  <form (ngSubmit)="saveNotes(customer_name , width, hight ,price)">
     
         <ion-item>
-          <ion-label position="stack">Title:</ion-label>
-          <ion-textarea required name="value" [(ngModel)]="title"></ion-textarea>
+          <ion-label position="stack">اسم العميل:</ion-label>
+          <ion-input type="text" required name="value" [(ngModel)]="customer_name"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label position="stack">Content:</ion-label>
-          <ion-textarea required name="value" [(ngModel)]="content"></ion-textarea>
+          <ion-label position="stack">العرض:</ion-label>
+          <ion-input type="number" required name="value" [(ngModel)]="width"></ion-input >
         </ion-item>
         <ion-item>
-          <ion-label position="stack">Date:</ion-label>
-          <ion-datetime displayFormat="MM/DD/YYYY" name="value" [(ngModel)]="date"></ion-datetime>
-          <!--min="1994-03-14" max="2012-12-09-->
+          <ion-label position="stack">الارتفاع:</ion-label>
+          <ion-input type="number" required name="value" [(ngModel)]="hight"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stack">السعر:</ion-label>
+          <ion-input type="number" required name="value" [(ngModel)]="price"></ion-input>
         </ion-item>
         <ion-button type="submit">Save Note</ion-button>
       </form>
+      
 </ion-content>
