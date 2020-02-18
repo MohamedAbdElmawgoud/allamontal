@@ -176,3 +176,15 @@
     --color: white;
   }
 }
+
+ion-modal{
+  --min-height: 50% !important;
+  --height: auto !important;
+}
+
+
+ion-toolbar{
+  --background : #3880ff !important;
+  color: #ffffff !important;
+  text-align: right;
+}

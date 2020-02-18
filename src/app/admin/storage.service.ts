@@ -13,33 +13,27 @@ export class StorageService {
   // { title: string , content: string , customer_name: number , date: Data}[] = [] ;
 
   constructor(public storage: Storage, public alertController: AlertController, public toastController: ToastController) { }
- 
-  saveNote(customer_name , width , hight, price) {
+
+  async saveNote(customer_name, width, hight, price) {
     // tslint:disable-next-line:prefer-const
-    let data = {customer_name : customer_name , width : width , hight:hight , price: price};
-    // console.log(data);
+    let data = { customer_name: customer_name, width: width, hight: hight, price: price };
     if (!data.customer_name) {
       this.presentAlert('تحذير!', 'ادخل اسم العميل');
 
     } else {
-      
-      this.note.push(data);
-     // console.log(this.note);
-      this.storage.set('notes', this.note);
+      let notes = await this.storage.get('notes')
+      notes.push(data);
+
+      this.storage.set('notes', notes);
       this.presentToast('تم اضافه متطلبات العميل بنجاح');
     }
 
 
-   
+
 
   }
   async getAllNotes() {
-    return this.storage.get('notes').then((note) => {
-      // console.log(this.note);
-      this.note = note;
-      // console.log(this.note);
-      return this.note;
-    });
+    return this.storage.get('notes');
   }
 
 
@@ -51,29 +45,10 @@ export class StorageService {
   }
 
 
-  getNote(customer_name: string) {
-    let count = 0;
-    let not: any = [];
-    let temp ;
-    return this.storage.get('notes').then((note) => {
-          this.note.forEach(element => {
+  async  getNote(customer_name: string) {
 
-                    not.push (element);
-                    // console.log(not[count].customer_name);
-
-                    if (customer_name === not[count].customer_name ) {
-                      temp = not[count];
-
-                        }
-                    count += 1;
-
-          });
-
-
-         // console.log(temp);
-          return temp;
-    });
-
+    let data = await this.storage.get('notes');
+    return data.filter(ele => ele.customer_name == customer_name)[0]
   }
 
 
