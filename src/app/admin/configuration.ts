@@ -17,11 +17,12 @@ export class configuration{
       }
       
       wazn_el7elkan(width ,hight){
-        let temp =   ((width+12)/100)*2 + ((hight+12)/100)*2;
-        let wazn = temp**(6/6.5);
+        let temp =   ((width/100+0.12))*2 + ((hight/100+0.12))*2 ;
+        console.log(temp);
+        let wazn = temp*(6/6.5);
         return wazn;
       }
-      2.64
+     
       wazn_eldalfa(width ,hight){
         let wazn =   ((width/100)*4 + (hight/100)*4)*(3.3/6.5);
         return wazn;
