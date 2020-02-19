@@ -20,8 +20,10 @@ export class CalcFormComponent implements OnInit {
     
     let data = {customer_name : customer_name , width : width , hight:hight , price: price};
    
-    this.storage.saveNote(data.customer_name, data.width, data.hight,data.price);
-    this.getNote(data.customer_name)
+    let result = await this.storage.saveNote(data.customer_name, data.width, data.hight,data.price);
+    if(result){
+      this.getNote(data.customer_name)
+    }
     this.modalController.dismiss()
    }
    getNote(customer_name: string) {

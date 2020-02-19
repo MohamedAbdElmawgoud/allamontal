@@ -24,20 +24,22 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
-
+.ion-color-primary{
+  --ion-color-base: #124D72 !important;
+ }
 @media (prefers-color-scheme: dark) {
   /*
    * Dark Colors
    * -------------------------------------------
    */
-  
+
   body {
-    --ion-color-primary: #428cff;
+    --ion-color-primary: #124D72;
     --ion-color-primary-rgb: 66,140,255;
     --ion-color-primary-contrast: #ffffff;
     --ion-color-primary-contrast-rgb: 255,255,255;
-    --ion-color-primary-shade: #3a7be0;
-    --ion-color-primary-tint: #5598ff;
+    --ion-color-primary-shade: #124D72;
+    --ion-color-primary-tint: #124D72;
   
     --ion-color-secondary: #50c8ff;
     --ion-color-secondary-rgb: 80,200,255;
@@ -185,6 +187,6 @@ ion-modal{
 
 ion-toolbar{
   --background : #124D72 !important;
-  color: wheat !important;
+  color: white !important;
   text-align: right;
 }

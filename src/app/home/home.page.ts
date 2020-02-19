@@ -21,6 +21,9 @@ export class HomePage implements OnInit {
     this.getNotes()
 
   }
+  async ionViewDidEnter(){
+    await this.ngOnInit()
+  }
 
   async presentModal() {
     const modal = await this.modalController.create({
