@@ -13,13 +13,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage';
 import { configuration } from "src/app/admin/configuration";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(),
     IonicStorageModule.forRoot()
-,    AppRoutingModule, BrowserAnimationsModule],
+,    AppRoutingModule, BrowserAnimationsModule,
+    HttpClientModule
+],
   providers: [
     StatusBar,
     SplashScreen,

@@ -16,11 +16,14 @@ export class IsLoggedGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot) {
     let token = await this.storage.get('token');
+    console.log(token);
+    
     if(!token){
       
       this.router.navigate(['login'])
+      return false
     }
-    return token;
+    return true;
   }
 
 }
