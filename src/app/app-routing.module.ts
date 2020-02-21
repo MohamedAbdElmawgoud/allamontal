@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule)
   },
+  {
+    path: 'customer-data/:name',
+    loadChildren: () => import('./customar-data/customar-data.module').then( m => m.CustomarDataPageModule)
+  },
 ];
 
 @NgModule({

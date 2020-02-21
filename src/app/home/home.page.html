@@ -1,15 +1,15 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      المعاملات السابقة
+العملاء
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content >
-  <ion-item (click)="getNote(item.customer_name)" *ngFor="let item of notes" detail>
+  <ion-item (click)="viewClient(item)" *ngFor="let item of clients" detail>
     <ion-label>
-      {{item.customer_name}}
+      {{item}}
     </ion-label>
   </ion-item>
 
