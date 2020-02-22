@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { FirebaseAnalytics } from '@ionic-native/firebase-analytics/ngx'
 
 @Component({
   selector: 'app-root',
@@ -12,12 +13,14 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  d;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private router: Router,
     private storage: Storage,
+    private firebaseAnalytics : FirebaseAnalytics
 
   ) {
     this.initializeApp();
@@ -29,7 +32,11 @@ export class AppComponent {
           await this.storage.remove(token)
           this.router.navigate(['/login'])
         }
-
+        console.log(token.name);
+        
+        this.firebaseAnalytics.logEvent(token.name, {page: e.url})
+        .then((res: any) => this.d = res)
+        .catch((error: any) => this.d = error);
       }
 
     })

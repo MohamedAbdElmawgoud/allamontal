@@ -14,7 +14,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { configuration } from "src/app/admin/configuration";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-
+import { FirebaseAnalytics } from '@ionic-native/firebase-analytics/ngx'
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -27,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     configuration,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    FirebaseAnalytics
   ],
   bootstrap: [AppComponent]
 })

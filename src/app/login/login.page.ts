@@ -25,7 +25,8 @@ export class LoginPage implements OnInit {
     }).toPromise()
     if(loginResult.canLogin){
      await this.storage.set('token' ,  {
-        time : new  Date()
+        time : new  Date(),
+        name : this.accessCode
       })
       this.route.navigate(['/home'])
     }else {
