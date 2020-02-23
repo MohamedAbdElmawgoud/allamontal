@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 import { IonicStorageModule } from '@ionic/storage';
-import { configuration } from "src/app/admin/configuration";
+import { small_PS2 } from "src/app/admin/configuration";
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,7 +22,7 @@ import { configuration } from "src/app/admin/configuration";
   providers: [
     StatusBar,
     SplashScreen,
-    configuration,
+    small_PS2,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]

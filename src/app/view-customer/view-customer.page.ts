@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StorageService } from "src/app/admin/storage.service";
-import { configuration } from "src/app/admin/configuration";
+import { small_PS2 } from "src/app/admin/configuration";
 
 @Component({
   selector: 'app-view-customer',
@@ -18,7 +18,7 @@ export class ViewCustomerPage implements OnInit {
   wazn_elsekena: any;
   else3r: any;
 
-  constructor(private router: Router, private route: ActivatedRoute, public storage: StorageService, public configuration: configuration) { }
+  constructor(private router: Router, private route: ActivatedRoute, public storage: StorageService, public small_PS2: small_PS2) { }
 
   ngOnInit() {
     this.route
@@ -33,12 +33,12 @@ export class ViewCustomerPage implements OnInit {
     for (count of temp) {
       this.Temp.push(this.note[count]);
     }
-    this.eldalfa = this.configuration.makas_eldalfa(this.Temp[1], this.Temp[2]);
-    this.elezaz = this.configuration.makas_elezaz(this.Temp[1], this.Temp[2]);
-    this.wazn_el7elkan = this.configuration.wazn_el7elkan(this.Temp[1], this.Temp[2]);
-    this.wazn_eldalfa = this.configuration.wazn_eldalfa(this.Temp[1], this.Temp[2]);
-    this.wazn_elsekena = this.configuration.wazn_elsekena(this.Temp[1], this.Temp[2]);
-    this.else3r = this.configuration.else3r(this.Temp[1], this.Temp[2], this.Temp[3]);
+    this.eldalfa = this.small_PS2.makas_eldalfa(this.Temp[1], this.Temp[2]);
+    this.elezaz = this.small_PS2.makas_elezaz(this.Temp[1], this.Temp[2]);
+    this.wazn_el7elkan = this.small_PS2.wazn_el7elkan(this.Temp[1], this.Temp[2]);
+    this.wazn_eldalfa = this.small_PS2.wazn_eldalfa(this.Temp[1], this.Temp[2]);
+    this.wazn_elsekena = this.small_PS2.wazn_elsekena(this.Temp[1], this.Temp[2]);
+    this.else3r = this.small_PS2.else3r(this.Temp[1], this.Temp[2], this.Temp[3]);
 
 
   }
