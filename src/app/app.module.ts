@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 
 import { IonicStorageModule } from '@ionic/storage';
-import { configuration } from "src/app/admin/configuration";
+import { small_PS2 } from "src/app/admin/configuration";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FirebaseAnalytics } from '@ionic-native/firebase-analytics/ngx'
@@ -27,7 +27,7 @@ import { FirebaseAnalytics } from '@ionic-native/firebase-analytics/ngx'
   providers: [
     StatusBar,
     SplashScreen,
-    configuration,
+    small_PS2,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     FirebaseAnalytics
   ],
