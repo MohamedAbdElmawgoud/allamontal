@@ -20,7 +20,7 @@ export class AppComponent {
     private statusBar: StatusBar,
     private router: Router,
     private storage: Storage,
-    private firebaseAnalytics : FirebaseAnalytics
+    private firebaseAnalytics: FirebaseAnalytics
 
   ) {
     this.initializeApp();
@@ -33,10 +33,10 @@ export class AppComponent {
           this.router.navigate(['/login'])
         }
         console.log(token.name);
-        
-        this.firebaseAnalytics.logEvent(token.name, {page: e.url})
-        .then((res: any) => this.d = res)
-        .catch((error: any) => this.d = error);
+
+        await this.firebaseAnalytics.logEvent(token.name, { page: e.url })
+        // .then((res: any) => this.d = res)
+        // .catch((error: any) => this.d = error);
       }
 
     })

@@ -14,6 +14,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { FirebaseAnalytics } from '@ionic-native/firebase-analytics/ngx'
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
