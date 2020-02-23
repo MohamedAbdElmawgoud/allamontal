@@ -160,3 +160,52 @@ export class jampo4{
       return makas;
     }
   }
+
+  export class Tango2{
+    constructor(){}
+    dalfa_elezaz(width , hight){
+      let makas = { width : (width+1)/2 , hight: hight-7.3};
+      console.log(makas);
+      return makas;
+     }
+     
+     
+     dalfa_elselk(width , hight){
+      let makas = { width : ((width+1)/2) , hight: (hight-6.7)};
+      console.log(makas);
+      return makas;
+    
+    }
+    
+    makas_elezaz(width , hight){
+      let makas = { width : ((width-21)/2) , hight: (hight-18) };
+      console.log(makas);
+      return makas;
+    }
+    
+  }
+
+
+  export class Tango4{
+    constructor(){}
+    dalfa_elezaz(width , hight){
+      let makas = { width : (width+5.5)/4 , hight: hight-7.3};
+      console.log(makas);
+      return makas;
+     }
+     
+     
+     dalfa_elselk(width , hight){
+      let makas = { width : ((width+10)/4) , hight: (hight-6.7)};
+      console.log(makas);
+      return makas;
+    
+    }
+    
+    makas_elezaz(width , hight){
+      let makas = { width : ((width-37)/4) , hight: (hight-18) };
+      console.log(makas);
+      return makas;
+    }
+    
+  }

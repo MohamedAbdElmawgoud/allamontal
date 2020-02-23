@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { StorageService } from "src/app/admin/storage.service";
 import { Router } from "@angular/router";
 import { ModalController } from '@ionic/angular';
-import { CalcFormComponent } from './calc-form/calc-form.component';
+import { CalcFormComponent } from '../customar-data/calc-form/calc-form.component';
+import { AddClientComponent } from './add-client/add-client.component';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-home',
@@ -10,38 +12,39 @@ import { CalcFormComponent } from './calc-form/calc-form.component';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  notes ;
-  note;
+  clients;
   constructor(
     public modalController: ModalController,
-    private storage: StorageService,
+    private storage: Storage,
     private router: Router,
   ) { }
   async ngOnInit() {
-    this.getNotes()
+    await this.getClients()
 
   }
-
+  async ionViewDidEnter() {
+    await this.ngOnInit()
+  }
   async presentModal() {
-    const modal = await this.modalController.create({
-      component: CalcFormComponent
-    });
-    return await modal.present();
+
+    let model = await this.modalController.create({
+      component: AddClientComponent,
+      cssClass: "add-client"
+    })
+    model.present()
+    model.onDidDismiss().then(e => {
+      this.getClients()
+    })
+  }
+  async getClients() {
+    let allKeys = await this.storage.keys();
+    this.clients = allKeys.filter(ele => ele != 'token')
+
   }
 
-  async  getNotes() {
-    this.notes = await this.storage.getAllNotes()
-
-  }
-  getNote(customer_name: string) {
-    this.storage.getNote(customer_name).then((n) => {
-      console.log(n);
-      
-           this.router.navigate(['view-customer'] , {
-             queryParams : n
-           });
-          
-    });
+  viewClient(client){
+    this.router.navigate(['customer-data' , client])
     
   }
+
 }

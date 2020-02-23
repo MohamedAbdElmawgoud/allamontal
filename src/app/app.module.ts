@@ -12,18 +12,23 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { IonicStorageModule } from '@ionic/storage';
 import { small_PS2 } from "src/app/admin/configuration";
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { FirebaseAnalytics } from '@ionic-native/firebase-analytics/ngx'
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(),
     IonicStorageModule.forRoot()
-,    AppRoutingModule],
+,    AppRoutingModule, BrowserAnimationsModule,
+    HttpClientModule
+],
   providers: [
     StatusBar,
     SplashScreen,
     small_PS2,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    FirebaseAnalytics
   ],
   bootstrap: [AppComponent]
 })

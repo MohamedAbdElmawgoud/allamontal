@@ -17,15 +17,17 @@ export class StorageService {
   async saveNote(customer_name, width, hight, price) {
     // tslint:disable-next-line:prefer-const
     let data = { customer_name: customer_name, width: width, hight: hight, price: price };
-    if (!data.customer_name) {
+    if (!data.customer_name || !data.width || !data.hight || !data.price ) {
       this.presentAlert('تحذير!', 'ادخل اسم العميل');
+      return false
 
     } else {
-      let notes = await this.storage.get('notes')
+      let notes = await this.storage.get('notes') || []
       notes.push(data);
 
       this.storage.set('notes', notes);
       this.presentToast('تم اضافه متطلبات العميل بنجاح');
+      return true;
     }
 
 

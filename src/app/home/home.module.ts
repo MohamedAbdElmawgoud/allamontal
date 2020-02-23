@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
-import { CalcFormComponent } from './calc-form/calc-form.component';
+import { AddClientComponent } from './add-client/add-client.component';
 
 @NgModule({
   imports: [
@@ -20,10 +20,10 @@ import { CalcFormComponent } from './calc-form/calc-form.component';
     ])
   ],
   declarations: [HomePage,
-    CalcFormComponent
-  ],
-  entryComponents : [
-    CalcFormComponent
+    AddClientComponent
+  ], entryComponents: [
+    AddClientComponent
   ]
+
 })
-export class HomePageModule {}
+export class HomePageModule { }
