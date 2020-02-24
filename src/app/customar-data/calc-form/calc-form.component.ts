@@ -26,7 +26,6 @@ export class CalcFormComponent implements OnInit {
 
   ngOnInit() { }
   async saveNotes(equationName ,equationType ,width, hight) {
-console.log(equationType);
 
     let user= (await this.storage.get(this.customer));
     user.notes.push({
@@ -40,5 +39,7 @@ console.log(equationType);
     await this.storage.set(this.customer , user )
     this.modalController.dismiss()
   }
-
+  close(){
+    this.modalController.dismiss()
+  }
 }

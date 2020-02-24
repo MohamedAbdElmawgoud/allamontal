@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StorageService } from "src/app/admin/storage.service";
-import { small_PS2 } from "src/app/admin/configuration";
+import { small_PS2, calculate } from "src/app/admin/configuration";
 
 @Component({
   selector: 'app-view-customer',
@@ -10,13 +10,8 @@ import { small_PS2 } from "src/app/admin/configuration";
 })
 export class ViewCustomerPage implements OnInit {
   note: any;
-  Temp: any = [];
-  eldalfa: any;
-  elezaz: any;
-  wazn_el7elkan: any;
-  wazn_eldalfa: any;
-  wazn_elsekena: any;
-  else3r: any;
+  calculationResult;
+  calculationResultView = [];
 
   constructor(private router: Router, private route: ActivatedRoute, public storage: StorageService) { }
 
@@ -25,11 +20,18 @@ export class ViewCustomerPage implements OnInit {
       .queryParams
       .subscribe(data => {
         this.note = data;
+        this.calculationResult = new calculate(+data.width, +data.hight).getCalculator(data.equationType).calculate()
 
+        Object.entries(this.calculationResult).forEach(ele=>{
+          this.calculationResultView.push({
+            name : ele[0],
+            values : ele[1]
+          })
+        })
       });
-      
-    
- 
+
+
+
 
   }
 
