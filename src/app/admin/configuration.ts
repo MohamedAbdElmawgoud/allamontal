@@ -17,28 +17,28 @@ export class calculate {
       return new small_PS2(this.width, this.hight)
     }
     if (type == 'small_PS4') {
-      return new small_PS4(this.width, this.hight, this.type)
+      return new small_PS4(this.width, this.hight)
     }
 
     if (type == 'big_PS2') {
-      return new big_PS2(this.width, this.hight, this.type)
+      return new big_PS2(this.width, this.hight)
     }
     if (type == 'big_PS4') {
-      return new big_PS4(this.width, this.hight, this.type)
+      return new big_PS4(this.width, this.hight)
     }
 
     if (type == 'jampo2') {
-      return new jampo2(this.width, this.hight, this.type)
+      return new jampo2(this.width, this.hight)
     }
     if (type == 'jampo4') {
-      return new jampo4(this.width, this.hight, this.type)
+      return new jampo4(this.width, this.hight)
     }
 
     if (type == 'Tango2') {
-      return new Tango2(this.width, this.hight, this.type)
+      return new Tango2(this.width, this.hight)
     }
     if (type == 'Tango4') {
-      return new Tango4(this.width, this.hight, this.type)
+      return new Tango4(this.width, this.hight)
     }
     else {
       return null
@@ -59,7 +59,7 @@ export class small_PS2 implements ICalculate {
   calculate() {
     return {
       "مقاس الضلفة": this.makas_eldalfa(),
-      "مقاس الازاز": this, makas_elezaz()
+      "مقاس الازاز": this.makas_elezaz()
 
     }
   }
@@ -97,10 +97,19 @@ export class small_PS2 implements ICalculate {
   //   return els3r ;
   // }
 }
-export class small_PS4 {
+export class small_PS4 implements ICalculate{
 
-  constructor(public width: number, public hight: number, public type: string) { }
+  constructor(public width: number, public hight: number) { }
+  calculate() {
+    return {
+      "مقاس الضلفة الازاز": this.dalfa_elezaz(),
+      "مقاس ضلفه السلك": this.dalfa_elselk(),
+      "مقاس الازاز": this.makas_elezaz(),
+      
+      
 
+    }
+  }
   dalfa_elezaz() {
     let makas = { width: (this.width + 5.8) / 4, hight: this.hight - 6.5 };
     return makas;
@@ -123,9 +132,19 @@ export class small_PS4 {
 }
 
 
-export class big_PS2 {
+export class big_PS2 implements ICalculate{
 
-  constructor(public width: number, public hight: number, public type: string) { }
+  constructor(public width: number, public hight: number) { }
+
+  calculate() {
+    return {
+      "مقاس الضلفة الازاز": this.dalfa_elezaz(),
+      "مقاس ضلفه السلك": this.dalfa_elselk(),
+     
+      
+
+    }
+  }
   dalfa_elezaz() {
     let makas = { width: (this.width + 2) / 2, hight: this.hight - 9.5 };
     console.log(makas);
@@ -145,10 +164,16 @@ export class big_PS2 {
 
 
 
-export class big_PS4 {
+export class big_PS4 implements ICalculate{
 
-  constructor(public width: number, public hight: number, public type: string) { }
+  constructor(public width: number, public hight: number) { }
+  calculate() {
+    return {
+      "مقاس الضلفة الازاز": this.dalfa_elezaz(),
+      "مقاس ضلفه السلك": this.dalfa_elselk(),
 
+    }
+  }
 
   dalfa_elezaz() {
     let makas = { width: (this.width + 2.5) / 4, hight: this.hight - 9.5 };
@@ -166,9 +191,21 @@ export class big_PS4 {
 
 }
 
-export class jampo2 {
+export class jampo2 implements ICalculate{
 
-  constructor(public width: number, public hight: number, public type: string) { }
+  constructor(public width: number, public hight: number) { }
+
+
+  calculate() {
+    return {
+      "مقاس الضلفة الازاز": this.dalfa_elezaz(),
+      "مقاس ضلفه السلك": this.dalfa_elselk(),
+      "مقاس الازاز": this.makas_elezaz(),
+      
+      
+
+    }
+  }
 
   dalfa_elezaz() {
     let makas = { width: (this.width - .6) / 2, hight: this.hight - 8.4 };
@@ -192,9 +229,20 @@ export class jampo2 {
 }
 
 
-export class jampo4 {
+export class jampo4 implements ICalculate{
 
-  constructor(public width: number, public hight: number, public type: string) { }
+  constructor(public width: number, public hight: number) { }
+  calculate() {
+    return {
+      "مقاس الضلفة الازاز": this.dalfa_elezaz(),
+      "مقاس ضلفه السلك": this.dalfa_elselk(),
+      "مقاس الازاز": this.makas_elezaz(),
+      
+      
+
+    }
+  }
+
 
   dalfa_elezaz() {
     let makas = { width: (this.width + 6) / 4, hight: this.hight - 0.84 };
@@ -217,8 +265,21 @@ export class jampo4 {
   }
 }
 
-export class Tango2 {
-  constructor(public width: number, public hight: number, public type: string) { }
+export class Tango2 implements ICalculate{
+
+  calculate() {
+    return {
+      "مقاس الضلفة الازاز": this.dalfa_elezaz(),
+      "مقاس ضلفه السلك": this.dalfa_elselk(),
+      "مقاس الازاز": this.makas_elezaz(),
+      
+      
+
+    }
+  }
+
+
+  constructor(public width: number, public hight: number) { }
   dalfa_elezaz() {
     let makas = { width: (this.width + 1) / 2, hight: this.hight - 7.3 };
     console.log(makas);
@@ -242,8 +303,20 @@ export class Tango2 {
 }
 
 
-export class Tango4 {
-  constructor(public width: number, public hight: number, public type: string) { }
+export class Tango4 implements ICalculate{
+  calculate() {
+    return {
+      "مقاس الضلفة الازاز": this.dalfa_elezaz(),
+      "مقاس ضلفه السلك": this.dalfa_elselk(),
+      "مقاس الازاز": this.makas_elezaz(),
+      
+      
+
+    }
+  }
+
+
+  constructor(public width: number, public hight: number) { }
   dalfa_elezaz() {
     let makas = { width: (this.width + 5.5) / 4, hight: this.hight - 7.3 };
     console.log(makas);
