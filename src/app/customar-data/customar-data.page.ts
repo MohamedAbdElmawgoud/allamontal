@@ -36,6 +36,9 @@ export class CustomarDataPage implements OnInit {
         customer: this.client.name
       }
     });
+    modal.onDidDismiss().then(async()=>{
+      await this.ngOnInit()
+    })
     return await modal.present();
   }
   viewEquation(item) {
