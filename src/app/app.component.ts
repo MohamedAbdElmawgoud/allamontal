@@ -54,7 +54,7 @@ export class AppComponent {
       this.splashScreen.hide();
       this.backButtonEvent();
     });
-    timer(5000).subscribe(() => this.showSplash = false)
+    timer(3000).subscribe(() => this.showSplash = false)
   }
   backButtonEvent() {
     this.backButtonSubscription = this.platform.backButton.subscribe(() => {
