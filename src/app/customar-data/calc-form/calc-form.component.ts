@@ -65,7 +65,7 @@ export class CalcFormComponent implements OnInit {
     }
 
     await this.storage.set(this.customer , user )
-    this.modalController.dismiss()
+    await this.modalController.dismiss()
   } 
 }
   close(){
