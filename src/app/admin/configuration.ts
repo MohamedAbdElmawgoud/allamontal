@@ -5,35 +5,35 @@ export interface ICalculate {
 }
 export const TYPES = [
   {
-    name : 'small_PS2',
+    name : 'ps صغير اتنين ضلفه',
     value : 'small_PS2',
   },
   {
-    name : 'small_PS4',
+    name : 'ps صغير اربعه ضلفه',
     value : 'small_PS4',
   },
   {
-    name : 'big_PS2',
+    name : 'ps كبير اتنين ضلفه',
     value : 'big_PS2',
   },
   {
-    name : 'big_PS4',
+    name : 'ps كبير اربعه ضلفه',
     value : 'big_PS4',
   },
   {
-    name : 'jampo2',
+    name : 'جامبو اتنين ضلفه',
     value : 'jampo2',
   },
   {
-    name : 'jampo4',
+    name : 'جامبو اربعه ضلفه',
     value : 'jampo4',
   },
   {
-    name : 'Tango2',
+    name : 'تانجو اتنين ضلفه',
     value : 'Tango2',
   },
   {
-    name : 'Tango4',
+    name : 'تانجو اربعه ضلفه',
     value : 'Tango4',
   },
 ]

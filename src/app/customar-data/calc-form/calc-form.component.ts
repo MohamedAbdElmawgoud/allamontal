@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { TYPES } from '../../admin/configuration';
 import { ModalController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
+import { AlertController } from "@ionic/angular";
 
 @Component({
   selector: 'app-calc-form',
@@ -19,7 +20,7 @@ export class CalcFormComponent implements OnInit {
   hight;
   price;
   types =  TYPES;
-  constructor(private router: Router, private storage: Storage,
+  constructor( public alertController: AlertController,private router: Router, private storage: Storage,
     public modalController: ModalController
 
   ) { }
@@ -27,7 +28,10 @@ export class CalcFormComponent implements OnInit {
   ngOnInit() { }
   async saveNotes(equationName ,equationType ,width, hight) {
 console.log(equationType);
-
+   if (!equationType || !equationName || !width|| !hight){
+     this.presentAlert('تحذير','من فضلك ادخل البيانات كامله')
+   }
+   else {
     let user= (await this.storage.get(this.customer));
     user.notes.push({
       equationName ,
@@ -39,6 +43,15 @@ console.log(equationType);
     })
     await this.storage.set(this.customer , user )
     this.modalController.dismiss()
-  }
+  }}
 
+  async presentAlert(title: string, content: string) {
+    const alert = await this.alertController.create({
+      header: title,
+      message: content,
+      buttons: ['حسنا']
+    });
+
+    await alert.present();
+  }
 }
