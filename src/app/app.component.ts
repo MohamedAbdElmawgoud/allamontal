@@ -1,11 +1,12 @@
-import { Component, OnChanges } from '@angular/core';
+import { Component, OnChanges , ViewChildren, QueryList, OnDestroy} from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import { Platform ,IonRouterOutlet} from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 import { Storage } from '@ionic/storage';
 import { FirebaseAnalytics } from '@ionic-native/firebase-analytics/ngx'
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,10 @@ import { FirebaseAnalytics } from '@ionic-native/firebase-analytics/ngx'
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  @ViewChildren(IonRouterOutlet) routerOutlets: QueryList<IonRouterOutlet>;
+  
   d;
+  backButtonSubscription: any;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -41,12 +45,27 @@ export class AppComponent {
 
     })
   }
-
+  showSplash = true;
+  
   initializeApp() {
     this.platform.ready().then(() => {
+      
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.backButtonEvent();
+    });
+    timer(3000).subscribe(() => this.showSplash = false)
+  }
+  backButtonEvent() {
+    this.backButtonSubscription = this.platform.backButton.subscribe(() => {
+      this.routerOutlets.forEach((outlet: IonRouterOutlet) => {
+        if (outlet && outlet.canGoBack()) {
+          outlet.pop();
+        } else if (
+          this.router.url === '/home'
+        ) {
+        }
+      });
     });
   }
-
 }
