@@ -8,16 +8,23 @@
 <ion-content dir="rtl" >
 
 
-<!-- 
-    <ion-card-title>
+    <ion-card-title *ngFor="let item of calculationResultView" >
+        <h3>
+            {{item.name}} 
+
+        </h3>
         <span>
-            {{else3r| number:'1.0-2'}}
+            العرض : 
+            {{item.values.width}}
 
         </span>
         <span>
-            السعر
+            الطول :
+            {{item.values.hight}}
 
         </span>
-    </ion-card-title> -->
+ 
+    </ion-card-title> 
+    
 
 </ion-content>
