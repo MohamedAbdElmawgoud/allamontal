@@ -3,6 +3,40 @@ import { Injectable } from '@angular/core';
 export interface ICalculate {
   calculate()
 }
+export const TYPES = [
+  {
+    name : 'small_PS2',
+    value : 'small_PS2',
+  },
+  {
+    name : 'small_PS4',
+    value : 'small_PS4',
+  },
+  {
+    name : 'big_PS2',
+    value : 'big_PS2',
+  },
+  {
+    name : 'big_PS4',
+    value : 'big_PS4',
+  },
+  {
+    name : 'jampo2',
+    value : 'jampo2',
+  },
+  {
+    name : 'jampo4',
+    value : 'jampo4',
+  },
+  {
+    name : 'Tango2',
+    value : 'Tango2',
+  },
+  {
+    name : 'Tango4',
+    value : 'Tango4',
+  },
+]
 export class calculate {
   constructor(public width: number, public hight: number) {
 

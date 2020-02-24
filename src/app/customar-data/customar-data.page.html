@@ -5,6 +5,11 @@
 </ion-header>
 
 <ion-content>
+  <ion-item (click)="viewEquation(item)" *ngFor="let item of client?.notes" detail>
+    <ion-label>
+      {{item.equationName}}
+    </ion-label>
+  </ion-item>
   <ion-fab>
     <ion-fab-button color="primary" (click)="presentModal()">
       <ion-icon name="add"></ion-icon>

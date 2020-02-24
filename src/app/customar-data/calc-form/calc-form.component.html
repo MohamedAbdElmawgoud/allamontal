@@ -8,11 +8,16 @@
     </span>
   </h2>
   <ion-item>
-    <ion-label position="floating" > اسم العميل</ion-label>
-    <ion-input type="text" required name="value" [(ngModel)]="customer_name"></ion-input>
+    <ion-label position="floating" > اسم العملية</ion-label>
+    <ion-input type="text" required name="value" [(ngModel)]="equationName"></ion-input>
   </ion-item>
 
-
+  <ion-item>
+    <ion-label position="floating" > نوع العملية</ion-label>
+    <ion-select  (ionChange)="equationType = $event.detail.value" placeholder="اختار نوع العملية">
+      <ion-select-option *ngFor="let type of types" value="{{type.value}}">{{type.name}}</ion-select-option>
+    </ion-select> 
+   </ion-item>
 
   <ion-item>
     <ion-label position="floating" > العرض</ion-label>
@@ -25,14 +30,14 @@
     <ion-input type="number" required name="value" [(ngModel)]="hight"></ion-input>
   </ion-item>
 
-
+<!-- 
   <ion-item>
     <ion-label position="floating" > السعر</ion-label>
     <ion-input type="number" required name="value" [(ngModel)]="price"></ion-input>
-  </ion-item>
+  </ion-item> -->
 
   <div style="text-align: center;position: absolute;bottom: 0;left: 35%;">
-    <ion-button (click)="saveNotes(customer_name , width, hight ,price)" color="primary">احسب العملية</ion-button>
+    <ion-button (click)="saveNotes( equationName , equationType , width, hight )" color="primary">احسب العملية</ion-button>
   </div>
 
 </form>

@@ -23,18 +23,11 @@ export class ViewCustomerPage implements OnInit {
   ngOnInit() {
     this.route
       .queryParams
-      .subscribe(v => {
-        this.note = v;
+      .subscribe(data => {
+        this.note = data;
 
       });
-
-    let count: any;
-    let temp = Object.keys(this.note);
-    for (count of temp) {
-      this.Temp.push(this.note[count]);
-    }
-
-// this.eldalfa = new small_PS2(1, 2);
+      
     
  
 

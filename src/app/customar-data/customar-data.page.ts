@@ -24,29 +24,23 @@ export class CustomarDataPage implements OnInit {
     this.route.paramMap.subscribe( async params=>{
       let clientData = await this.storage.get(params.get('name'))
       this.client = clientData;
+      
     })
+  }
+  async ionViewDidEnter() {
+    await this.ngOnInit()
   }
   async presentModal() {
     const modal = await this.modalController.create({
-      component: CalcFormComponent
+      component: CalcFormComponent,componentProps :{
+        customer : this.client.name
+      }
     });
     return await modal.present();
   }
-
-  async  getNotes() {
-    // this.notes = await this.storage.getAllNotes()
-
+  viewEquation(item){
+    this.router.navigate(['view-customer' ] , {queryParams : item})
   }
-  getNote(customer_name: string) {
-    // this.storage.getNote(customer_name).then((n) => {
-    //   console.log(n);
 
-    //   this.router.navigate(['view-customer'], {
-    //     queryParams: n
-    //   });
-
-    // });
-
-  }
 
 }
