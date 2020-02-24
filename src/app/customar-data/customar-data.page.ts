@@ -44,12 +44,21 @@ export class CustomarDataPage implements OnInit {
   async delete(item) {
     let user = (await this.storage.get(this.client.name));
     user.notes = user.notes.filter(ele => {
-      
       return ele.id != item.id && ele.equationName != item.equationName
     })
     
     await this.storage.set(this.client.name, user)
     await this.ngOnInit()
+  }
+ async editItem(item){
+    const modal = await this.modalController.create({
+      component: CalcFormComponent, componentProps: {
+        customer: this.client.name,
+        ...item
+      }
+    });
+    return await modal.present();
+
   }
 
 }

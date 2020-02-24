@@ -14,28 +14,50 @@ export class CalcFormComponent implements OnInit {
   customer;
   equationName: string;
   equationType: string;
-
   width;
   hight;
   price;
   types =  TYPES;
+  id ;
   constructor(private router: Router, private storage: Storage,
     public modalController: ModalController
 
   ) { }
 
-  ngOnInit() { }
-  async saveNotes(equationName ,equationType ,width, hight) {
+  ngOnInit() { 
+    console.log(this);
+    
+  }
+  async saveProcess(equationName ,equationType ,width, hight) {
 
     let user= (await this.storage.get(this.customer));
-    user.notes.push({
-      equationName ,
-      equationType ,
-      width ,
-      hight,
-      createdAt : new Date(),
-      id : user.notes.length + 1
-    })
+    if(!this.id){
+      user.notes.push({
+        equationName ,
+        equationType ,
+        width ,
+        hight,
+        createdAt : new Date(),
+        id : Math.floor(Math.random() * 1000) + user.notes.length
+
+      })
+    }else{
+      user.notes = user.notes.map(ele=>{
+        if(ele.id == this.id){
+          return {
+            equationName ,
+            equationType ,
+            width ,
+            hight,
+            createdAt :ele.createdAt,
+            id : ele.id
+    
+          }
+        }
+          return ele;
+      })
+    }
+
     await this.storage.set(this.customer , user )
     this.modalController.dismiss()
   }
