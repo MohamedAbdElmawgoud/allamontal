@@ -5,10 +5,13 @@
 </ion-header>
 
 <ion-content>
-  <ion-item (click)="viewEquation(item)" *ngFor="let item of client?.notes" detail>
-    <ion-label>
+  <ion-item  *ngFor="let item of client?.notes" >
+    <ion-label (click)="viewEquation(item)">
       {{item.equationName}}
+
     </ion-label>
+    <ion-icon (click)="delete(item)" style="color: red;" name="trash"></ion-icon>
+    <ion-icon style="color: green;" name="create"></ion-icon>
   </ion-item>
   <ion-fab>
     <ion-fab-button color="primary" (click)="presentModal()">

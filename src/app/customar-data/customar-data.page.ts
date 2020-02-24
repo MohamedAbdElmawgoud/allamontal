@@ -11,7 +11,7 @@ import { Storage } from '@ionic/storage';
   styleUrls: ['./customar-data.page.scss'],
 })
 export class CustomarDataPage implements OnInit {
-  client ;
+  client;
   constructor(
     public modalController: ModalController,
     private storage: Storage,
@@ -21,10 +21,10 @@ export class CustomarDataPage implements OnInit {
   ) { }
 
   async ngOnInit() {
-    this.route.paramMap.subscribe( async params=>{
+    this.route.paramMap.subscribe(async params => {
       let clientData = await this.storage.get(params.get('name'))
       this.client = clientData;
-      
+
     })
   }
   async ionViewDidEnter() {
@@ -32,15 +32,24 @@ export class CustomarDataPage implements OnInit {
   }
   async presentModal() {
     const modal = await this.modalController.create({
-      component: CalcFormComponent,componentProps :{
-        customer : this.client.name
+      component: CalcFormComponent, componentProps: {
+        customer: this.client.name
       }
     });
     return await modal.present();
   }
-  viewEquation(item){
-    this.router.navigate(['view-customer' ] , {queryParams : item})
+  viewEquation(item) {
+    this.router.navigate(['view-customer'], { queryParams: item })
   }
-
+  async delete(item) {
+    let user = (await this.storage.get(this.client.name));
+    user.notes = user.notes.filter(ele => {
+      
+      return ele.id != item.id && ele.equationName != item.equationName
+    })
+    
+    await this.storage.set(this.client.name, user)
+    await this.ngOnInit()
+  }
 
 }
