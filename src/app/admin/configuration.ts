@@ -115,9 +115,8 @@ export class calculate {
 
 
 
-export class small_PS2 implements ICalculate {
+export class small_PS2 extends wazn_andEls3r implements ICalculate  {
 
-  constructor(public width: number, public hight: number) { }
   calculate() {
     return {
       "مقاس الضلفة": this.makas_eldalfa(),
@@ -135,33 +134,10 @@ export class small_PS2 implements ICalculate {
     return mkas;
   }
 
-  // wazn_el7elkan(){
-  //   let temp =   ((this.width/100+0.12))*2 + ((this.hight/100+0.12))*2 ;
-  //   console.log(temp);
-  //   let wazn = temp*(6/6.5);
-  //   return wazn;
-  // }
-
-  // wazn_eldalfa(){
-  //   let wazn =   ((this.width/100)*4 + (this.hight/100)*4)*(3.3/6.5);
-  //   return wazn;
-  //   }
-
-
-  // wazn_elsekena(){
-  //   let wazn = ((this.hight/100)*2)*(2/6.5);
-  //   return wazn;
-  //     }
-
-
-  // else3r(,price){
-  //   let els3r = (this.width/100)*(this.hight/100)*price;
-  //   return els3r ;
-  // }
 }
-export class small_PS4 implements ICalculate{
+export class small_PS4 extends wazn_andEls3r implements ICalculate{
 
-  constructor(public width: number, public hight: number) { }
+ 
   calculate() {
     return {
       "مقاس الضلفة الازاز": this.dalfa_elezaz(),
@@ -194,9 +170,9 @@ export class small_PS4 implements ICalculate{
 }
 
 
-export class big_PS2 implements ICalculate{
+export class big_PS2 extends wazn_andEls3r implements ICalculate{
 
-  constructor(public width: number, public hight: number) { }
+ 
 
   calculate() {
     return {
@@ -226,9 +202,9 @@ export class big_PS2 implements ICalculate{
 
 
 
-export class big_PS4 implements ICalculate{
+export class big_PS4 extends wazn_andEls3r implements ICalculate{
 
-  constructor(public width: number, public hight: number) { }
+ 
   calculate() {
     return {
       "مقاس الضلفة الازاز": this.dalfa_elezaz(),
@@ -253,9 +229,9 @@ export class big_PS4 implements ICalculate{
 
 }
 
-export class jampo2 implements ICalculate{
+export class jampo2 extends wazn_andEls3r implements ICalculate{
 
-  constructor(public width: number, public hight: number) { }
+ 
 
 
   calculate() {
@@ -291,9 +267,9 @@ export class jampo2 implements ICalculate{
 }
 
 
-export class jampo4 implements ICalculate{
+export class jampo4 extends wazn_andEls3r implements ICalculate{
 
-  constructor(public width: number, public hight: number) { }
+ 
   calculate() {
     return {
       "مقاس الضلفة الازاز": this.dalfa_elezaz(),
@@ -327,7 +303,7 @@ export class jampo4 implements ICalculate{
   }
 }
 
-export class Tango2 implements ICalculate{
+export class Tango2 extends wazn_andEls3r implements ICalculate{
 
   calculate() {
     return {
@@ -341,7 +317,7 @@ export class Tango2 implements ICalculate{
   }
 
 
-  constructor(public width: number, public hight: number) { }
+ 
   dalfa_elezaz() {
     let makas = { width: (this.width + 1) / 2, hight: this.hight - 7.3 };
     console.log(makas);
@@ -365,7 +341,7 @@ export class Tango2 implements ICalculate{
 }
 
 
-export class Tango4 implements ICalculate{
+export class Tango4 extends wazn_andEls3r implements ICalculate{
   calculate() {
     return {
       "مقاس الضلفة الازاز": this.dalfa_elezaz(),
@@ -378,7 +354,7 @@ export class Tango4 implements ICalculate{
   }
 
 
-  constructor(public width: number, public hight: number) { }
+ 
   dalfa_elezaz() {
     let makas = { width: (this.width + 5.5) / 4, hight: this.hight - 7.3 };
     console.log(makas);
