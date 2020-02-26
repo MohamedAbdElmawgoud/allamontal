@@ -22,10 +22,14 @@ export class CustomarDataPage implements OnInit {
 
   async ngOnInit() {
     this.route.paramMap.subscribe(async params => {
-      let clientData = await this.storage.get(params.get('name'))
-      this.client = clientData;
+    this.getClient(params.get('name'))
 
     })
+  }
+
+  async getClient(name){
+    let clientData = await this.storage.get(name)
+    this.client = clientData;
   }
   async ionViewDidEnter() {
     await this.ngOnInit()
@@ -36,6 +40,10 @@ export class CustomarDataPage implements OnInit {
         customer: this.client.name
       }
     });
+    modal.onDidDismiss().then(async(d)=>{
+      
+      await this.getClient(this.client.name)
+    })
     return await modal.present();
   }
   viewEquation(item) {
@@ -57,6 +65,10 @@ export class CustomarDataPage implements OnInit {
         ...item
       }
     });
+    modal.onDidDismiss().then(async(d)=>{
+      
+      await this.getClient(this.client.name)
+    })
     return await modal.present();
 
   }
