@@ -2,18 +2,13 @@ import { Injectable } from '@angular/core';
 
 
 export class wazn_andEls3r{
-  constructor(public width: number, public hight: number , public twl_el3wd: number , public wazn_el3wd) { }
+  constructor(public width: number, public hight: number ,  public twl_el3wd: number , public wazn_el3wd) { }
  wazn_el7elkan(){
     let temp =   ((this.width/100+0.12))*2 + ((this.hight/100+0.12))*2 ;
     console.log(temp);
     let wazn = temp*(this.twl_el3wd/this.wazn_el3wd);
     return wazn;
   }
-
-  wazn_eldalfa(){
-    let wazn =   ((this.width/100)*4 + (this.hight/100)*4)*(this.twl_el3wd/this.wazn_el3wd);
-    return wazn;
-    }
 
 
   wazn_elsekena(){
@@ -66,7 +61,7 @@ export const TYPES = [
   },
 ]
 export class calculate {
-  constructor(public width: number, public hight: number) {
+  constructor(public width: number, public hight: number , public twl_el3wd: number , public wazn_el3wd) {
 
   
   }
@@ -76,31 +71,31 @@ export class calculate {
       return null;
     }
     if (type == 'small_PS2') {
-      return new small_PS2(this.width, this.hight)
+      return new small_PS2(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd)
     }
     if (type == 'small_PS4') {
-      return new small_PS4(this.width, this.hight)
+      return new small_PS4(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd)
     }
 
     if (type == 'big_PS2') {
-      return new big_PS2(this.width, this.hight)
+      return new big_PS2(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd)
     }
     if (type == 'big_PS4') {
-      return new big_PS4(this.width, this.hight)
+      return new big_PS4(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd)
     }
 
     if (type == 'jampo2') {
-      return new jampo2(this.width, this.hight)
+      return new jampo2(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd)
     }
     if (type == 'jampo4') {
-      return new jampo4(this.width, this.hight)
+      return new jampo4(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd)
     }
 
     if (type == 'Tango2') {
-      return new Tango2(this.width, this.hight)
+      return new Tango2(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd)
     }
     if (type == 'Tango4') {
-      return new Tango4(this.width, this.hight)
+      return new Tango4(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd)
     }
     else {
       return null
@@ -119,21 +114,32 @@ export class small_PS2 extends wazn_andEls3r implements ICalculate  {
 
   calculate() {
     return {
-      "مقاس الضلفة": this.makas_eldalfa(),
+      "مقاس الضلفة": this.dalfa_elezaz(),
       "مقاس الازاز": this.makas_elezaz()
 
     }
   }
-  makas_eldalfa() {
+  dalfa_elezaz() {
     let mkas = { width: this.width / 2, hight: this.hight - 6.5 };
-    //console.log(mkas);
+   
+    return mkas;
+  }
+  dalfa_elselk(){
+    let mkas = { width: this.width / 2, hight: this.hight +0.3};
     return mkas;
   }
   makas_elezaz() {
     let mkas = { width: (this.width / 2) - 11, hight: (this.hight - 6.5) - 11 };
     return mkas;
   }
-
+  wazn_dalfa_elezaz(){
+    let wazn =   (((this.width/2)/100)*4 + ((this.hight - 6.5)/100)*4)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+    }
+   wazn_dalfa_elselk(){
+    let wazn =   (((this.width/2)/100)*4 + ((this.hight +0.3)/100)*4)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+   }
 }
 export class small_PS4 extends wazn_andEls3r implements ICalculate{
 
@@ -167,6 +173,15 @@ export class small_PS4 extends wazn_andEls3r implements ICalculate{
     return makas;
   }
 
+  wazn_dalfa_elezaz(){
+    let wazn =   ((((this.width + 5.8) / 4)/100)*8 + ((this.hight - 6.5)/100)*8)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+    }
+   wazn_dalfa_elselk(){
+    let wazn =   ((((this.width + 5.8) / 4)/100)*8 + ((this.hight -6.5 +0.3)/100)*8)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+   }
+
 }
 
 
@@ -197,6 +212,15 @@ export class big_PS2 extends wazn_andEls3r implements ICalculate{
 
   }
 
+  wazn_dalfa_elezaz(){
+    let wazn =   ((((this.width + 2) / 2)/100)*4 + ((this.hight -  9.5)/100)*4)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+    }
+   wazn_dalfa_elselk(){
+    let wazn =   ((((this.width + 2) / 2)/100)*4 + ((this.hight - 9.5 +0.3)/100)*4)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+   }
+
 
 }
 
@@ -226,6 +250,15 @@ export class big_PS4 extends wazn_andEls3r implements ICalculate{
     return makas;
 
   }
+
+  wazn_dalfa_elezaz(){
+    let wazn =   ((((this.width + 2.5) / 4)/100)*8 + ((this.hight -  9.5)/100)*8)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+    }
+   wazn_dalfa_elselk(){
+    let wazn =   ((((this.width + 2.5) / 4)/100)*8 + ((this.hight - 9.5+0.3)/100)*8)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+   }
 
 }
 
@@ -264,6 +297,14 @@ export class jampo2 extends wazn_andEls3r implements ICalculate{
     console.log(makas);
     return makas;
   }
+  wazn_dalfa_elezaz(){
+    let wazn =   ((((this.width - .6) / 2)/100)*4 + ((this.hight - 8.4)/100)*4)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+    }
+   wazn_dalfa_elselk(){
+    let wazn =   ((((this.width - 4.4) / 2)/100)*4 + ((this.hight - 0.9)/100)*4)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+   }
 }
 
 
@@ -301,6 +342,15 @@ export class jampo4 extends wazn_andEls3r implements ICalculate{
     console.log(makas);
     return makas;
   }
+
+  wazn_dalfa_elezaz(){
+    let wazn =   ((((this.width + 6) / 4)/100)*8 + ((this.hight - 0.84)/100)*8)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+    }
+   wazn_dalfa_elselk(){
+    let wazn =   ((((this.width - 1.8) / 4)/100)*8 + (((this.hight - 1.8) / 4)/100)*8)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+   }
 }
 
 export class Tango2 extends wazn_andEls3r implements ICalculate{
@@ -338,6 +388,15 @@ export class Tango2 extends wazn_andEls3r implements ICalculate{
     return makas;
   }
 
+  wazn_dalfa_elezaz(){
+    let wazn =   ((((this.width + 1) / 2)/100)*4 + ((this.hight - 7.3)/100)*4)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+    }
+   wazn_dalfa_elselk(){
+    let wazn =   ((((this.width + 1) / 2)/100)*4 + ((this.hight -6.7)/100)*4)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+   }
+
 }
 
 
@@ -374,5 +433,13 @@ export class Tango4 extends wazn_andEls3r implements ICalculate{
     console.log(makas);
     return makas;
   }
+  wazn_dalfa_elezaz(){
+    let wazn =   ((((this.width + 5.5) / 4)/100)*8 + ((this.hight -  7.3)/100)*8)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+    }
+   wazn_dalfa_elselk(){
+    let wazn =   ((((this.width + 10) / 4)/100)*8 + ((this.hight - 6.7)/100)*8)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+   }
 
 }
