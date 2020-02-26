@@ -1,5 +1,33 @@
 import { Injectable } from '@angular/core';
 
+
+export class wazn_andEls3r{
+  constructor(public width: number, public hight: number , public twl_el3wd: number , public wazn_el3wd) { }
+ wazn_el7elkan(){
+    let temp =   ((this.width/100+0.12))*2 + ((this.hight/100+0.12))*2 ;
+    console.log(temp);
+    let wazn = temp*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+  }
+
+  wazn_eldalfa(){
+    let wazn =   ((this.width/100)*4 + (this.hight/100)*4)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+    }
+
+
+  wazn_elsekena(){
+    let wazn = ((this.hight/100)*2)*(this.twl_el3wd/this.wazn_el3wd);
+    return wazn;
+      }
+
+
+  else3r(price){
+    let els3r = (this.width/100)*(this.hight/100)*price;
+    return els3r ;
+  }
+
+}
 export interface ICalculate {
   calculate()
 }
