@@ -20,6 +20,8 @@ export class CalcFormComponent implements OnInit {
   price;
   types =  TYPES;
   id ;
+  poleHeight ;
+  poleWeight
   constructor(private router: Router, private storage: Storage,
     public modalController: ModalController,
     public alertController: AlertController
@@ -32,7 +34,7 @@ export class CalcFormComponent implements OnInit {
   }
 
 
-  async saveProcess(equationName ,equationType ,width, hight) {
+  async saveProcess(equationName ,equationType ,width, hight , poleHeight , poleWeight) {
    if(!equationName || !equationType || !width || !hight){
        this.presentAlert('تحذير','ادخل كل البيانات من فضلك')
    } else{
@@ -43,6 +45,8 @@ export class CalcFormComponent implements OnInit {
         equationType ,
         width ,
         hight,
+        poleHeight ,
+        poleWeight,
         createdAt : new Date(),
         id : Math.floor(Math.random() * 1000) + user.notes.length
 
@@ -55,6 +59,8 @@ export class CalcFormComponent implements OnInit {
             equationType ,
             width ,
             hight,
+            poleHeight ,
+             poleWeight,
             createdAt :ele.createdAt,
             id : ele.id
     

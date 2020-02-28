@@ -20,7 +20,7 @@ export class ViewCustomerPage implements OnInit {
       .queryParams
       .subscribe(data => {
         this.note = data;
-        this.calculationResult = new calculate(+data.width, +data.hight).getCalculator(data.equationType).calculate()
+        this.calculationResult = new calculate(+data.width, +data.hight ,+data.poleHeight , +data.poleWeight).getCalculator(data.equationType).calculate()
 
         Object.entries(this.calculationResult).forEach(ele=>{
           this.calculationResultView.push({
