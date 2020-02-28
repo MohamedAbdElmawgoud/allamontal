@@ -59,6 +59,7 @@ export class CustomarDataPage implements OnInit {
     await this.ngOnInit()
   }
  async editItem(item){
+   
     const modal = await this.modalController.create({
       component: CalcFormComponent, componentProps: {
         customer: this.client.name,

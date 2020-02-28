@@ -33,6 +33,16 @@
     <ion-input type="number" required name="hight" [(ngModel)]="hight"></ion-input>
   </ion-item>
 
+  <ion-item>
+    <ion-label position="floating" > طول العمود</ion-label>
+    <ion-input type="number" required name="poleHeight" [(ngModel)]="poleHeight"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label position="floating" > وزن العمود</ion-label>
+    <ion-input type="number" required name="poleWeight" [(ngModel)]="poleWeight"></ion-input>
+  </ion-item>
+
 <!-- 
   <ion-item>
     <ion-label position="floating" > السعر</ion-label>
@@ -40,7 +50,7 @@
   </ion-item> -->
 
   <div style="text-align: center;position: absolute;bottom: 0;left: 35%;">
-    <ion-button (click)="saveProcess( equationName , equationType , width, hight )" color="primary">احفظ العملية</ion-button>
+    <ion-button (click)="saveProcess( equationName , equationType , width, hight , poleHeight , poleWeight )" color="primary">احفظ العملية</ion-button>
   </div>
 
 </form>
