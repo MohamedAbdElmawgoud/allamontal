@@ -4,6 +4,7 @@ import { TYPES } from '../../admin/configuration';
 import { ModalController } from '@ionic/angular';
 import { Storage } from '@ionic/storage';
 import { AlertController } from "@ionic/angular";
+import { FirebaseAnalytics } from '@ionic-native/firebase-analytics/ngx';
 
 @Component({
   selector: 'app-calc-form',
@@ -18,63 +19,68 @@ export class CalcFormComponent implements OnInit {
   width;
   hight;
   price;
-  types =  TYPES;
-  id ;
-  poleHeight ;
+  types = TYPES;
+  id;
+  poleHeight;
   poleWeight
-  constructor(private router: Router, private storage: Storage,
+  constructor(private storage: Storage,
     public modalController: ModalController,
-    public alertController: AlertController
-
+    public alertController: AlertController,
+    private firebaseAnalytics: FirebaseAnalytics
   ) { }
 
-  ngOnInit() { 
-    console.log(this);
-    
+  ngOnInit() {
+
   }
 
 
-  async saveProcess(equationName ,equationType ,width, hight , poleHeight , poleWeight) {
-   if(!equationName || !equationType || !width || !hight){
-       this.presentAlert('تحذير','ادخل كل البيانات من فضلك')
-   } else{
-    let user= (await this.storage.get(this.customer));
-    if(!this.id){
-      user.notes.push({
-        equationName ,
-        equationType ,
-        width ,
-        hight,
-        poleHeight ,
-        poleWeight,
-        createdAt : new Date(),
-        id : Math.floor(Math.random() * 1000) + user.notes.length
+  async saveProcess(equationName, equationType, width, hight, poleHeight, poleWeight, price) {
 
-      })
-    }else{
-      user.notes = user.notes.map(ele=>{
-        if(ele.id == this.id){
-          return {
-            equationName ,
-            equationType ,
-            width ,
-            hight,
-            poleHeight ,
-             poleWeight,
-            createdAt :ele.createdAt,
-            id : ele.id
-    
+    let token = await this.storage.get('token')
+
+    await this.firebaseAnalytics.logEvent(token.name, { equationType })
+    if (!equationName || !equationType || !width || !hight) {
+      this.presentAlert('تحذير', 'ادخل كل البيانات من فضلك')
+    } else {
+      let user = (await this.storage.get(this.customer));
+      if (!this.id) {
+        user.notes.push({
+          equationName,
+          equationType,
+          width,
+          hight,
+          poleHeight,
+          poleWeight,
+          createdAt: new Date(),
+          price,
+          id: Math.floor(Math.random() * 1000) + user.notes.length
+
+        })
+      } else {
+        user.notes = user.notes.map(ele => {
+          if (ele.id == this.id) {
+            return {
+              equationName,
+              equationType,
+              width,
+              hight,
+              poleHeight,
+              poleWeight,
+              price,
+              createdAt: ele.createdAt,
+              id: ele.id
+
+            }
           }
-        }
           return ele;
-      })
-    }
+        })
+      }
 
-    await this.storage.set(this.customer , user )
-    await this.modalController.dismiss()
-  } 
-}
-  close(){
+      await this.storage.set(this.customer, user)
+      await this.modalController.dismiss()
+    }
+  }
+  close() {
     this.modalController.dismiss()
   }
   async presentAlert(title: string, content: string) {

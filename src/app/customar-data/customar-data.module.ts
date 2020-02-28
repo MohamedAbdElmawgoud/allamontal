@@ -8,6 +8,7 @@ import { CustomarDataPageRoutingModule } from './customar-data-routing.module';
 
 import { CustomarDataPage } from './customar-data.page';
 import { CalcFormComponent } from './calc-form/calc-form.component';
+import { FirebaseAnalytics } from '@ionic-native/firebase-analytics/ngx';
 
 @NgModule({
   imports: [
@@ -19,6 +20,9 @@ import { CalcFormComponent } from './calc-form/calc-form.component';
   declarations: [CustomarDataPage , CalcFormComponent],
   entryComponents : [
     CalcFormComponent
+  ],
+  providers : [
+    FirebaseAnalytics
   ]
 })
 export class CustomarDataPageModule {}

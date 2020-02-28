@@ -33,10 +33,9 @@ export class AppComponent {
         let token = await this.storage.get('token')
         let lastLoginTime = (new Date().getTime() - new Date(token.time).getTime()) / 8.64e7
         if (lastLoginTime >= 7) {
-          await this.storage.remove(token)
+          await this.storage.remove('token')
           this.router.navigate(['/login'])
         }
-        console.log(token.name);
 
         await this.firebaseAnalytics.logEvent(token.name, { page: e.url })
         // .then((res: any) => this.d = res)
