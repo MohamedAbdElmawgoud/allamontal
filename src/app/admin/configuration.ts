@@ -122,8 +122,11 @@ export class small_PS2 extends wazn_andEls3r implements ICalculate  {
 
   calculate() {
     return {
-      "مقاس الضلفة": this.dalfa_elezaz(),
-      "مقاس الازاز": this.makas_elezaz()
+      "مقاس الضلفة الازاز": this.dalfa_elezaz(),
+      "مقاس ضلفه السلك": this.dalfa_elselk(),   
+      "مقاس الازاز": this.makas_elezaz(),
+      "وزن ضلفه السلك": this.wazn_dalfa_elezaz(),
+      "وزن ضلفه الازاز": this.wazn_dalfa_elselk()
 
     }
   }
@@ -155,9 +158,12 @@ export class small_PS4 extends wazn_andEls3r implements ICalculate{
   calculate() {
     return {
       "مقاس الضلفة الازاز": this.dalfa_elezaz(),
-      "مقاس ضلفه السلك": this.dalfa_elselk(),
+      "مقاس ضلفه السلك": this.dalfa_elselk(),   
       "مقاس الازاز": this.makas_elezaz(),
+      "وزن ضلفه السلك": this.wazn_dalfa_elezaz(),
+      "وزن ضلفه الازاز": this.wazn_dalfa_elselk()
       
+     
       
 
     }
@@ -200,7 +206,9 @@ export class big_PS2 extends wazn_andEls3r implements ICalculate{
   calculate() {
     return {
       "مقاس الضلفة الازاز": this.dalfa_elezaz(),
-      "مقاس ضلفه السلك": this.dalfa_elselk(),
+      "مقاس ضلفه السلك": this.dalfa_elselk(),   
+      "وزن ضلفه السلك": this.wazn_dalfa_elezaz(),
+      "وزن ضلفه الازاز": this.wazn_dalfa_elselk()
      
       
 
@@ -240,7 +248,9 @@ export class big_PS4 extends wazn_andEls3r implements ICalculate{
   calculate() {
     return {
       "مقاس الضلفة الازاز": this.dalfa_elezaz(),
-      "مقاس ضلفه السلك": this.dalfa_elselk(),
+      "مقاس ضلفه السلك": this.dalfa_elselk(),   
+      "وزن ضلفه السلك": this.wazn_dalfa_elezaz(),
+      "وزن ضلفه الازاز": this.wazn_dalfa_elselk()
 
     }
   }
@@ -278,9 +288,10 @@ export class jampo2 extends wazn_andEls3r implements ICalculate{
   calculate() {
     return {
       "مقاس الضلفة الازاز": this.dalfa_elezaz(),
-      "مقاس ضلفه السلك": this.dalfa_elselk(),
+      "مقاس ضلفه السلك": this.dalfa_elselk(),   
       "مقاس الازاز": this.makas_elezaz(),
-      
+      "وزن ضلفه السلك": this.wazn_dalfa_elezaz(),
+      "وزن ضلفه الازاز": this.wazn_dalfa_elselk()
       
 
     }
@@ -322,9 +333,10 @@ export class jampo4 extends wazn_andEls3r implements ICalculate{
   calculate() {
     return {
       "مقاس الضلفة الازاز": this.dalfa_elezaz(),
-      "مقاس ضلفه السلك": this.dalfa_elselk(),
+      "مقاس ضلفه السلك": this.dalfa_elselk(),   
       "مقاس الازاز": this.makas_elezaz(),
-      
+      "وزن ضلفه السلك": this.wazn_dalfa_elezaz(),
+      "وزن ضلفه الازاز": this.wazn_dalfa_elselk()
       
 
     }
@@ -366,9 +378,10 @@ export class Tango2 extends wazn_andEls3r implements ICalculate{
   calculate() {
     return {
       "مقاس الضلفة الازاز": this.dalfa_elezaz(),
-      "مقاس ضلفه السلك": this.dalfa_elselk(),
+      "مقاس ضلفه السلك": this.dalfa_elselk(),   
       "مقاس الازاز": this.makas_elezaz(),
-      
+      "وزن ضلفه السلك": this.wazn_dalfa_elezaz(),
+      "وزن ضلفه الازاز": this.wazn_dalfa_elselk()
       
 
     }
@@ -412,9 +425,10 @@ export class Tango4 extends wazn_andEls3r implements ICalculate{
   calculate() {
     return {
       "مقاس الضلفة الازاز": this.dalfa_elezaz(),
-      "مقاس ضلفه السلك": this.dalfa_elselk(),
+      "مقاس ضلفه السلك": this.dalfa_elselk(),   
       "مقاس الازاز": this.makas_elezaz(),
-      
+      "وزن ضلفه السلك": this.wazn_dalfa_elezaz(),
+      "وزن ضلفه الازاز": this.wazn_dalfa_elselk()
       
 
     }
