@@ -9,18 +9,24 @@
 
 
     <ion-card-title *ngFor="let item of calculationResultView" >
-        <h3>
+        <h3  *ngIf="item.values.hight" >
             {{item.name}} 
 
         </h3>
-        <span>
+        <span *ngIf="item.values.width" >
             العرض : 
             {{item.values.width}}
 
         </span>
-        <span>
+        <span *ngIf="item.values.hight" >
             الطول :
             {{item.values.hight}}
+
+        </span>
+        <span class="weight" *ngIf="!item.values.hight" >
+            {{item.name}} 
+            :
+            {{item.values |number:'1.2-2'}}
 
         </span>
  
