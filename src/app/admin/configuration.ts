@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 
 export class wazn_andEls3r{
-  constructor(public width: number, public hight: number ,  public twl_el3wd: number , public wazn_el3wd) { }
+  constructor(public width: number, public hight: number ,  public twl_el3wd: number , public wazn_el3wd: number , public price : number) { }
  wazn_el7elkan(){
     let temp =   ((this.width/100+0.12))*2 + ((this.hight/100+0.12))*2 ;
     console.log(temp);
@@ -17,9 +17,15 @@ export class wazn_andEls3r{
       }
 
 
-  else3r(price){
-    let els3r = (this.width/100)*(this.hight/100)*price;
+  else3r(){
+    let els3r = (this.width/100)*(this.hight/100)*this.price;
     return els3r ;
+  }
+
+  Twl_el3wd(){
+     if( this.hight> this.width){
+       
+     }
   }
 
 }
@@ -61,41 +67,43 @@ export const TYPES = [
   },
 ]
 export class calculate {
-  constructor(public width: number, public hight: number , public twl_el3wd: number , public wazn_el3wd) {
+  constructor(public width: number,
+     public hight: number ,  
+     public twl_el3wd: number , 
+     public wazn_el3wd: number , 
+     public price : number) { }
 
-  
-  }
 
   getCalculator( type: string){
     if (type == null) {
       return null;
     }
     if (type == 'small_PS2') {
-      return new small_PS2(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd)
+      return new small_PS2(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd,this.price)
     }
     if (type == 'small_PS4') {
-      return new small_PS4(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd)
+      return new small_PS4(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd,this.price)
     }
 
     if (type == 'big_PS2') {
-      return new big_PS2(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd)
+      return new big_PS2(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd,this.price)
     }
     if (type == 'big_PS4') {
-      return new big_PS4(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd)
+      return new big_PS4(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd,this.price)
     }
 
     if (type == 'jampo2') {
-      return new jampo2(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd)
+      return new jampo2(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd,this.price)
     }
     if (type == 'jampo4') {
-      return new jampo4(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd)
+      return new jampo4(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd,this.price)
     }
 
     if (type == 'Tango2') {
-      return new Tango2(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd)
+      return new Tango2(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd,this.price)
     }
     if (type == 'Tango4') {
-      return new Tango4(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd)
+      return new Tango4(this.width, this.hight ,this.twl_el3wd,this.wazn_el3wd,this.price)
     }
     else {
       return null
