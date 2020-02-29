@@ -14,13 +14,15 @@ export class ViewCustomerPage implements OnInit {
   calculationResultView = [];
 
   constructor(private router: Router, private route: ActivatedRoute, public storage: StorageService) { }
-
+  
   ngOnInit() {
     this.route
       .queryParams
       .subscribe(data => {
         this.note = data;
-        this.calculationResult = new calculate(+data.width, +data.hight ,+data.poleHeight , +data.poleWeight,+data.price).getCalculator(data.equationType).calculate()
+        this.calculationResult = new calculate(+data.width, +data.hight ,+data.poleHeight , +data.poleWeight,
+          +data.price ,+data.twl_3wd_sekena,+data.wazn_3wd_sekena
+        ,+data.twl_3wd_eldalfa,+data.wazn_3wd_eldalfa).getCalculator(data.equationType).calculate()
 
         Object.entries(this.calculationResult).forEach(ele=>{
           this.calculationResultView.push({

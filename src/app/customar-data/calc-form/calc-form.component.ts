@@ -22,7 +22,12 @@ export class CalcFormComponent implements OnInit {
   types = TYPES;
   id;
   poleHeight;
-  poleWeight
+  poleWeight;
+  pole_sekena_hight;
+  pole_sekena_weight;
+  pole_dalfa_hight;
+  pole_dalfa_weight;
+  
   constructor(private storage: Storage,
     public modalController: ModalController,
     public alertController: AlertController,
@@ -34,7 +39,13 @@ export class CalcFormComponent implements OnInit {
   }
 
 
-  async saveProcess(equationName, equationType, width, hight, poleHeight, poleWeight, price) {
+  async saveProcess(equationName, equationType,
+     width, hight,
+      poleHeight, poleWeight,
+      pole_sekena_hight,pole_sekena_weight,
+      pole_dalfa_hight,pole_dalfa_weight,
+     
+    price) {
 
     let token = await this.storage.get('token')
 
@@ -51,6 +62,10 @@ export class CalcFormComponent implements OnInit {
           hight,
           poleHeight,
           poleWeight,
+          pole_sekena_hight,
+          pole_sekena_weight,
+          pole_dalfa_hight,
+          pole_dalfa_weight,
           createdAt: new Date(),
           price,
           id: Math.floor(Math.random() * 1000) + user.notes.length
@@ -66,6 +81,10 @@ export class CalcFormComponent implements OnInit {
               hight,
               poleHeight,
               poleWeight,
+              pole_sekena_hight,
+              pole_sekena_weight,
+              pole_dalfa_hight,
+              pole_dalfa_weight,
               price,
               createdAt: ele.createdAt,
               id: ele.id
