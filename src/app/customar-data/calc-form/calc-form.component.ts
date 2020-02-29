@@ -42,12 +42,20 @@ export class CalcFormComponent implements OnInit {
   async saveProcess(equationName, equationType,
      width, hight,
       poleHeight, poleWeight,
+      price,
       pole_sekena_hight,pole_sekena_weight,
-      pole_dalfa_hight,pole_dalfa_weight,
+      pole_dalfa_hight,pole_dalfa_weight
      
-    price) {
+    ) {
 
     let token = await this.storage.get('token')
+console.log(
+  width, hight,
+  poleHeight, poleWeight,
+  price,
+  pole_sekena_hight,pole_sekena_weight,
+  pole_dalfa_hight,pole_dalfa_weight
+);
 
     await this.firebaseAnalytics.logEvent(token.name, { equationType })
     if (!equationName || !equationType || !width || !hight) {
