@@ -1,6 +1,33 @@
 import { Injectable } from '@angular/core';
 
+export class matb5{
+constructor(public width :number ,public hight: number , 
+   public weight_Shefa1:number ,
+    public weight_Shefa2:number ,
+   public width_Raf:number,  public hight_Raf:number, public el_Omk:number, public weight_3wd_Raf:number,
+     public  width_dalfa:number, public hight_dalfa:number, public weight_3wd_dalfa:number,
 
+){}
+
+
+weightSh1(){
+  let weight = ((this.width - 5) + (this.hight - 5))*2*this.weight_Shefa1;
+  return weight;
+}
+weightSh2(){
+  let weight = ((this.width - 5) + (this.hight - 5)+(this.el_Omk - 5))*2*this.weight_Shefa2;
+  return weight;
+
+  }
+weightRaf(){
+  let weight = ((this.width_Raf) + (this.hight_Raf))*2*this.weight_3wd_Raf;
+  return weight;
+    }
+weightdalfa(){
+  let weight = ((this.width_dalfa) + (this.hight_dalfa))*2*this.weight_3wd_dalfa;
+  return weight;
+}
+}
 export class wazn_andEls3r{
   constructor(public width: number,
      public hight: number ,
@@ -190,7 +217,7 @@ export class small_PS2 extends wazn_andEls3r implements ICalculate  {
     return mkas;
   }
   makas_elezaz() {
-    let mkas = { width: (this.width / 2) - 11, hight: (this.hight - 6.5) - 11 };
+    let mkas = { width: (this.width / 2) - 11, hight: (this.hight - 6.5) - 10.5 };
     return mkas;
   }
   wazn_dalfa_elezaz(){
@@ -235,7 +262,7 @@ export class small_PS4 extends wazn_andEls3r implements ICalculate{
   }
 
   makas_elezaz() {
-    let makas = { width: ((this.width + 5.8) / 4) - 11, hight: (this.hight - 6.5) - 11 };
+    let makas = { width: ((this.width + 5.8) / 4) - 11, hight: (this.hight - 6.5) - 10.5 };
     console.log(makas);
     return makas;
   }
@@ -458,14 +485,14 @@ export class Tango2 extends wazn_andEls3r implements ICalculate{
 
  
   dalfa_elezaz() {
-    let makas = { width: (this.width + 1) / 2, hight: this.hight - 7.3 };
+    let makas = { width: (this.width + 1) / 2, hight: this.hight - 7.5 };
     console.log(makas);
     return makas;
   }
 
 
   dalfa_elselk() {
-    let makas = { width: ((this.width + 1) / 2), hight: (this.hight - 6.7) };
+    let makas = { width: ((this.width + 1) / 2), hight: (this.hight - 7) };
     console.log(makas);
     return makas;
 
@@ -478,11 +505,11 @@ export class Tango2 extends wazn_andEls3r implements ICalculate{
   }
 
   wazn_dalfa_elezaz(){
-    let wazn =   ((((this.width + 1) / 2)/100)*4 + ((this.hight - 7.3)/100)*4)*(this.wazn_3wd_eldalfa/this.twl_3wd_eldalfa);
+    let wazn =   ((((this.width + 1) / 2)/100)*4 + ((this.hight - 7.5)/100)*4)*(this.wazn_3wd_eldalfa/this.twl_3wd_eldalfa);
     return wazn;
     }
    wazn_dalfa_elselk(){
-    let wazn =   ((((this.width + 1) / 2)/100)*4 + ((this.hight -6.7)/100)*4)*(this.wazn_3wd_eldalfa/this.twl_3wd_eldalfa);
+    let wazn =   ((((this.width + 1) / 2)/100)*4 + ((this.hight -7)/100)*4)*(this.wazn_3wd_eldalfa/this.twl_3wd_eldalfa);
     return wazn;
    }
 
@@ -508,14 +535,14 @@ export class Tango4 extends wazn_andEls3r implements ICalculate{
 
  
   dalfa_elezaz() {
-    let makas = { width: (this.width + 5.5) / 4, hight: this.hight - 7.3 };
+    let makas = { width: (this.width + 5.5) / 4, hight: this.hight - 7.5 };
     console.log(makas);
     return makas;
   }
 
 
   dalfa_elselk() {
-    let makas = { width: ((this.width + 10) / 4), hight: (this.hight - 6.7) };
+    let makas = { width: ((this.width + 10) / 4), hight: (this.hight - 7) };
     console.log(makas);
     return makas;
 
@@ -527,12 +554,12 @@ export class Tango4 extends wazn_andEls3r implements ICalculate{
     return makas;
   }
   wazn_dalfa_elezaz(){
-    let wazn =   ((((this.width + 5.5) / 4)/100)*8 + ((this.hight -  7.3)/100)*8)*(this.wazn_3wd_eldalfa/this.twl_3wd_eldalfa);
+    let wazn =   ((((this.width + 5.5) / 4)/100)*8 + ((this.hight -  7.5)/100)*8)*(this.wazn_3wd_eldalfa/this.twl_3wd_eldalfa);
     return wazn;
     }
    wazn_dalfa_elselk(){
-    let wazn =   ((((this.width + 10) / 4)/100)*8 + ((this.hight - 6.7)/100)*8)*(this.wazn_3wd_eldalfa/this.twl_3wd_eldalfa);
+    let wazn =   ((((this.width + 10) / 4)/100)*8 + ((this.hight - 7)/100)*8)*(this.wazn_3wd_eldalfa/this.twl_3wd_eldalfa);
     return wazn;
    }
-
+//6.7 ,7.3
 }
