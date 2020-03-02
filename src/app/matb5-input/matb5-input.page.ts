@@ -21,14 +21,13 @@ export class Matb5InputPage implements OnInit {
         this.note = data;
         console.log(data);
          
-        this.calculationResult = new matb5(+data.width, +data.hight ,+data.weight_Shefa1 , +data.weight_Shefa2,
+        this.calculationResult = new matb5(+data.width, +data.hight ,
           +data.width_Raf ,
           +data.hight_Raf,
           +data.el_Omk
-        ,+data.weight_3wd_Raf,
+        ,
         +data.width_dalfa,
         +data.hight_dalfa,
-        +data.weight_3wd_dalfa
         );
 
         Object.entries(this.calculationResult).forEach(ele=>{

@@ -2,29 +2,27 @@ import { Injectable } from '@angular/core';
 
 export class matb5{
 constructor(public width :number ,public hight: number , 
-   public weight_Shefa1:number ,
-    public weight_Shefa2:number ,
-   public width_Raf:number,  public hight_Raf:number, public el_Omk:number, public weight_3wd_Raf:number,
-     public  width_dalfa:number, public hight_dalfa:number, public weight_3wd_dalfa:number,
+   public width_Raf:number,  public hight_Raf:number, public el_Omk:number, 
+     public  width_dalfa:number, public hight_dalfa:number, 
 
 ){}
 
 
 weightSh1(){
-  let weight = ((this.width - 5) + (this.hight - 5))*2*(this.weight_Shefa1/6);
+  let weight = ((this.width - 5) + (this.hight - 5))*2*(2/6);
   return weight;
 }
 weightSh2(){
-  let weight = ((this.width - 5) + (this.hight - 5)+(this.el_Omk - 5))*2*(this.weight_Shefa2/6);
+  let weight = ((this.width - 5) + (this.hight - 5)+(this.el_Omk - 5))*2*(2.5/6);
   return weight;
 
   }
 weightRaf(){
-  let weight = ((this.width_Raf) + (this.hight_Raf))*2*(this.weight_3wd_Raf/6);
+  let weight = ((this.width_Raf) + (this.hight_Raf))*2*(2/6);
   return weight;
     }
 weightdalfa(){
-  let weight = ((this.width_dalfa) + (this.hight_dalfa))*2*(this.weight_3wd_dalfa/6);
+  let weight = ((this.width_dalfa) + (this.hight_dalfa))*2*(1.8/6);
   return weight;
 }
 }
