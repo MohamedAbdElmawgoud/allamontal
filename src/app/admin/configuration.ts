@@ -11,20 +11,20 @@ constructor(public width :number ,public hight: number ,
 
 
 weightSh1(){
-  let weight = ((this.width - 5) + (this.hight - 5))*2*this.weight_Shefa1;
+  let weight = ((this.width - 5) + (this.hight - 5))*2*(this.weight_Shefa1/6);
   return weight;
 }
 weightSh2(){
-  let weight = ((this.width - 5) + (this.hight - 5)+(this.el_Omk - 5))*2*this.weight_Shefa2;
+  let weight = ((this.width - 5) + (this.hight - 5)+(this.el_Omk - 5))*2*(this.weight_Shefa2/6);
   return weight;
 
   }
 weightRaf(){
-  let weight = ((this.width_Raf) + (this.hight_Raf))*2*this.weight_3wd_Raf;
+  let weight = ((this.width_Raf) + (this.hight_Raf))*2*(this.weight_3wd_Raf/6);
   return weight;
     }
 weightdalfa(){
-  let weight = ((this.width_dalfa) + (this.hight_dalfa))*2*this.weight_3wd_dalfa;
+  let weight = ((this.width_dalfa) + (this.hight_dalfa))*2*(this.weight_3wd_dalfa/6);
   return weight;
 }
 }

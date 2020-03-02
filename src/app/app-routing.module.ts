@@ -21,7 +21,15 @@ const routes: Routes = [
   {
     path: 'customer-data/:name',
     loadChildren: () => import('./customar-data/customar-data.module').then( m => m.CustomarDataPageModule)
+  },  {
+    path: 'matb5-input',
+    loadChildren: () => import('./matb5-input/matb5-input.module').then( m => m.Matb5InputPageModule)
   },
+  {
+    path: 'matb5-output',
+    loadChildren: () => import('./matb5-output/matb5-output.module').then( m => m.Matb5OutputPageModule)
+  },
+
 ];
 
 @NgModule({
