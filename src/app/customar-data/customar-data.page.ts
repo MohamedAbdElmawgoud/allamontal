@@ -4,6 +4,8 @@ import { StorageService } from '../admin/storage.service';
 import { ModalController } from '@ionic/angular';
 import { CalcFormComponent } from './calc-form/calc-form.component';
 import { Storage } from '@ionic/storage';
+import { Matba5Component } from "src/app/matba5/matba5.component";
+
 
 @Component({
   selector: 'app-customar-data',
@@ -34,7 +36,8 @@ export class CustomarDataPage implements OnInit {
   async ionViewDidEnter() {
     await this.ngOnInit()
   }
-  async presentModal() {
+  async presentModal(type:string) {
+    if (type=='window'){
     const modal = await this.modalController.create({
       component: CalcFormComponent, componentProps: {
         customer: this.client.name
@@ -45,6 +48,19 @@ export class CustomarDataPage implements OnInit {
       await this.getClient(this.client.name)
     })
     return await modal.present();
+  }else {
+
+    const modal = await this.modalController.create({
+      component: Matba5Component, componentProps: {
+        customer: this.client.name
+      }
+    });
+    modal.onDidDismiss().then(async(d)=>{
+      
+      await this.getClient(this.client.name)
+    })
+    return await modal.present();
+  }
   }
   viewEquation(item) {
     this.router.navigate(['view-customer'], { queryParams: item })
@@ -59,7 +75,20 @@ export class CustomarDataPage implements OnInit {
     await this.ngOnInit()
   }
  async editItem(item){
-   
+   if(item.equationType=='matb5'){
+    const modal = await this.modalController.create({
+      component: Matba5Component, componentProps: {
+        customer: this.client.name,
+        ...item
+      }
+    });
+    modal.onDidDismiss().then(async(d)=>{
+      
+      await this.getClient(this.client.name)
+    })
+    return await modal.present();
+
+   }else{
     const modal = await this.modalController.create({
       component: CalcFormComponent, componentProps: {
         customer: this.client.name,
@@ -71,7 +100,7 @@ export class CustomarDataPage implements OnInit {
       await this.getClient(this.client.name)
     })
     return await modal.present();
-
+  }
   }
 
 }

@@ -1,0 +1,83 @@
+
+
+
+    <form dir="rtl">
+      <h2>
+        <span *ngIf="!id" >
+          قم باضافة عملية 
+        </span>
+        <span *ngIf="id" >
+    قم بتعديل العملية
+        </span>
+        <span>
+          <ion-icon (click)="close()" name="close-outline"></ion-icon>
+        </span>
+      </h2>
+        <ion-item>
+            <ion-label position="floating" > اسم العملية</ion-label>
+            <ion-input type="text" required name="equationName" [(ngModel)]="equationName"></ion-input>
+          </ion-item>
+        
+         
+    <ion-item>
+      <ion-label position="floating" > العرض</ion-label>
+      <ion-input type="number" required name="width" [(ngModel)]="width"></ion-input>
+    </ion-item>
+  
+  
+    <ion-item>
+      <ion-label position="floating" > الارتفاع</ion-label>
+      <ion-input type="number" required name="hight" [(ngModel)]="hight"></ion-input>
+    </ion-item>
+  
+    
+  
+  
+    
+  
+  
+    <ion-item>
+      <ion-label position="floating" > عرض الرف</ion-label>
+      <ion-input type="number" required name="width_Raf" [(ngModel)]="width_Raf"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating" > طول الرف</ion-label>
+      <ion-input type="number" required name="hight_Raf" [(ngModel)]="hight_Raf"></ion-input>
+    </ion-item>
+  
+  
+    <ion-item>
+      <ion-label position="floating" > العمق</ion-label>
+      <ion-input type="number" required name="el_Omk" [(ngModel)]="el_Omk"></ion-input>
+    </ion-item> 
+  
+   
+  
+  
+  
+    <ion-item>
+      <ion-label position="floating" > عرض الضلفه</ion-label>
+      <ion-input type="number" required name="width_dalfa" [(ngModel)]="width_dalfa"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label position="floating" > طول الضلفه</ion-label>
+      <ion-input type="number" required name="hight_dalfa" [(ngModel)]="hight_dalfa"></ion-input>
+    </ion-item>
+  
+    <div style="text-align: center;position: absolute;bottom: 0;left: 35%;">
+      <ion-button (click)="saveProcess( equationName , 'matb5' , width, hight ,width_Raf ,hight_Raf,el_Omk,width_dalfa,hight_dalfa )" color="primary">احفظ العملية</ion-button>
+    </div>
+    
+    
+  
+  
+  
+    
+  
+    </form>
+  
+    
+  
+
+  

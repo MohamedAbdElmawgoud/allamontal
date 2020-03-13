@@ -5,24 +5,34 @@ constructor(public width :number ,public hight: number ,
    public width_Raf:number,  public hight_Raf:number, public el_Omk:number, 
      public  width_dalfa:number, public hight_dalfa:number, 
 
-){}
+){
+  this.calculate()
+}
 
-
+calculate() {
+  return {
+    "وزن الشفه الواحده": this.weightSh1(),
+    "وزن الشفتين": this.weightSh2(),   
+    "وزن الرف": this.weightRaf(),
+    "وزن الضلفه": this.weightdalfa(),
+   
+  }
+}
 weightSh1(){
-  let weight = ((this.width - 5) + (this.hight - 5))*2*(2/6);
+  let weight = ((this.width - 5)/100 + (this.hight - 5)/100)*2*(2/6);
   return weight;
 }
 weightSh2(){
-  let weight = ((this.width - 5) + (this.hight - 5)+(this.el_Omk - 5))*2*(2.5/6);
+  let weight = ((this.width - 5)/100 + (this.hight - 5)/100+(this.el_Omk - 5)/100)*2*(2.5/6);
   return weight;
 
   }
 weightRaf(){
-  let weight = ((this.width_Raf) + (this.hight_Raf))*2*(2/6);
+  let weight = ((this.width_Raf)/100 + (this.hight_Raf)/100)*2*(2/6);
   return weight;
     }
 weightdalfa(){
-  let weight = ((this.width_dalfa) + (this.hight_dalfa))*2*(1.8/6);
+  let weight = ((this.width_dalfa)/100 + (this.hight_dalfa)/100)*2*(1.8/6);
   return weight;
 }
 }

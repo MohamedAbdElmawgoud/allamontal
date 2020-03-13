@@ -10,6 +10,8 @@ export class Matb5OutputPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    
   }
 
 }

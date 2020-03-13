@@ -1,6 +1,14 @@
 
 
 <ion-content>
+  <form dir="rtl">
+
+      <ion-item>
+          <ion-label position="floating" > اسم العملية</ion-label>
+          <ion-input type="text" required name="equationName" [(ngModel)]="equationName"></ion-input>
+        </ion-item>
+      
+       
   <ion-item>
     <ion-label position="floating" > العرض</ion-label>
     <ion-input type="number" required name="width" [(ngModel)]="width"></ion-input>
@@ -47,14 +55,17 @@
     <ion-input type="number" required name="hight_dalfa" [(ngModel)]="hight_dalfa"></ion-input>
   </ion-item>
 
-
+  <div style="text-align: center;position: absolute;bottom: 0;left: 35%;">
+    <ion-button (click)="saveProcess( equationName , equationType , width, hight ,width_Raf ,hight_Raf,el_Omk,width_dalfa,hight_dalfa )" color="primary">احفظ العملية</ion-button>
+  </div>
+  
   
 
 
 
   
 
-  
+  </form>
 
   
 

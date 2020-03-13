@@ -6,11 +6,11 @@ import { FirebaseAnalytics } from "@ionic-native/firebase-analytics/ngx";
 import { Storage } from '@ionic/storage';
 
 @Component({
-  selector: 'matb5-input',
-  templateUrl: './matb5-input.page.html',
-  styleUrls: ['./matb5-input.page.scss'],
+  selector: 'app-matba5',
+  templateUrl: './matba5.component.html',
+  styleUrls: ['./matba5.component.scss'],
 })
-export class Matb5InputPage implements OnInit {
+export class Matba5Component implements OnInit {
   customer: any;
   id: any;
   note:any= [];
@@ -44,7 +44,7 @@ export class Matb5InputPage implements OnInit {
    ) {
 
    let token = await this.storage.get('token')
-console.log(width, hight ,width_Raf ,hight_Raf,el_Omk,width_dalfa,hight_dalfa);
+// console.log(width, hight ,width_Raf ,hight_Raf,el_Omk,width_dalfa,hight_dalfa);
 
    await this.firebaseAnalytics.logEvent(token.name, { equationType })
    if (!width || !hight) {

@@ -9,6 +9,7 @@ import { CustomarDataPageRoutingModule } from './customar-data-routing.module';
 import { CustomarDataPage } from './customar-data.page';
 import { CalcFormComponent } from './calc-form/calc-form.component';
 import { FirebaseAnalytics } from '@ionic-native/firebase-analytics/ngx';
+import { Matba5Component } from "src/app/matba5/matba5.component";
 
 @NgModule({
   imports: [
@@ -17,9 +18,10 @@ import { FirebaseAnalytics } from '@ionic-native/firebase-analytics/ngx';
     IonicModule,
     CustomarDataPageRoutingModule
   ],
-  declarations: [CustomarDataPage , CalcFormComponent],
+  declarations: [CustomarDataPage , CalcFormComponent,Matba5Component],
   entryComponents : [
-    CalcFormComponent
+    CalcFormComponent,
+    Matba5Component
   ],
   providers : [
     FirebaseAnalytics
